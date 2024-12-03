@@ -1,16 +1,17 @@
 import streamlit as st
 import psycopg2
 import pandas as pd
+import os  # Importing os for environment variables
 
 # Function to establish a connection to PostgreSQL
 def get_connection():
     try:
         conn = psycopg2.connect(
-            host="127.0.0.1",         # Replace with your host
-            database="postgres", # Replace with your database name
-            user="postgres",     # Replace with your database user
-            password="dmql", # Replace with your password
-            port="5432"               # Default PostgreSQL port
+            host=os.getenv("DB_HOST", "127.0.0.1"),  # Use environment variable for host
+            database=os.getenv("DB_NAME", "postgres"),  # Use environment variable for database
+            user=os.getenv("DB_USER", "postgres"),  # Use environment variable for user
+            password=os.getenv("DB_PASS", "dmql"),  # Use environment variable for password
+            port=os.getenv("DB_PORT", "5432")  # Use environment variable for port
         )
         return conn
     except Exception as e:
@@ -41,7 +42,7 @@ def execute_query(query):
 
 # Streamlit App
 def main():
-    st.title("PostgreSQL Query Interface")
+    st.title(" Courier Nexus")
 
     st.sidebar.header("Query Options")
     selected_query = st.sidebar.selectbox(
