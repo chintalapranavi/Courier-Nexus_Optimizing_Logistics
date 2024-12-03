@@ -7,7 +7,7 @@ import os  # Importing os for environment variables
 def get_connection():
     try:
         conn = psycopg2.connect(
-            host=os.getenv("DB_HOST", "127.0.0.1"),  # Use environment variable for host
+            host="160.72.138.210",  # Use environment variable for host
             database=os.getenv("DB_NAME", "postgres"),  # Use environment variable for database
             user=os.getenv("DB_USER", "postgres"),  # Use environment variable for user
             password=os.getenv("DB_PASS", "dmql"),  # Use environment variable for password
