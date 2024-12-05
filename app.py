@@ -11,7 +11,7 @@ def get_connection():
             database=os.getenv("DB_NAME", "postgres"),  # Use environment variable for database
             user=os.getenv("DB_USER", "postgres"),  # Use environment variable for user
             password=os.getenv("DB_PASS", "dmql"),  # Use environment variable for password
-            port=os.getenv("DB_PORT", "5432")  # Use environment variable for port
+            port=os.getenv("DB_PORT", "5433")  # Use environment variable for port
         )
         return conn
     except Exception as e:
