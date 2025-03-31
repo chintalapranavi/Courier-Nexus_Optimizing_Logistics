@@ -1,14 +1,59 @@
-### README for Logistics Database Management System with Streamlit Integration
+# 📦 Optimizing Logistics through Data – Courier Nexus
+
+A scalable, data-driven logistics management system designed to streamline shipment tracking, claims processing, and customer feedback for courier services. This project replaces inefficient spreadsheet workflows with a robust relational database and interactive web-based analytics, supporting key decisions across operations and customer service.
 
 ---
 
-#### Project Description
+## 🚀 Project Overview
 
-This project creates a comprehensive database solution for a logistics company to overcome the inefficiencies of traditional tools like Excel. The database includes detailed records of shipments, claims, delivery attempts, and customer feedback while ensuring scalability, data integrity, and ease of access for multiple user groups.
-
-The system uses SQL for database creation, Python scripts for synthetic data generation, and provides a web-based user interface using Streamlit for seamless interaction and data visualization.
+As logistics operations scale, managing shipment data with spreadsheets becomes inefficient and error-prone. Our project, *Courier Nexus*, addresses these issues by building a structured, scalable database using PostgreSQL and pgAdmin, enhanced by Python-based ETL pipelines and a Streamlit web interface for real-time querying and reporting.
 
 ---
+
+## 🛠️ Tech Stack & Tools
+
+- **Languages**: Python, SQL  
+- **Database**: PostgreSQL, pgAdmin  
+- **Web Interface**: Streamlit  
+- **Data Generation**: Faker (Python)  
+- **Containerization**: Docker  
+- **Version Control**: Git, GitHub  
+- **Data Engineering Concepts**: ETL, Indexing, Relational Modeling, Chase Test  
+- **Data Analysis**: SQL (joins, group by, subqueries, aggregates)  
+
+---
+
+## 💡 Key Features
+
+- 📦 **Relational Schema Design**: Modeled 10+ entities including Shipments, Packages, Senders, Feedback, and Claims.
+- ⚙️ **Data Generation**: Created 15,000+ synthetic records using Python and Faker.
+- 🧠 **BCNF Compliance**: Applied decomposition, functional dependency analysis, and the Chase Test.
+- 📊 **Optimized Query Performance**: Reduced query time from seconds to milliseconds using indexing and query refactoring.
+- 🧾 **Real-Time Data Reporting**: Built Streamlit dashboards for user-friendly insights into shipment and claim statuses.
+- 🔐 **Data Quality & Security**: Used indexing, integrity constraints, and normalization to improve accuracy and performance.
+
+---
+
+## 🧱 Database Schema
+
+The schema includes key entities like:
+
+- **Shipments** – Tracks status, methods, and relationships to packages, senders, and receivers.  
+- **Claims** – Stores claim dates, resolution status, and associated amounts.  
+- **Customer Feedback** – Captures ratings and comments for each shipment.  
+- **Delivery Attempts & Locations** – Logs delivery tries and geolocation data.  
+- **Packages, Senders, Receivers** – Core shipment-related data.
+
+
+## 🧪 Sample Queries
+
+- 🗃️ Count of Shipments by Status  
+- 📦 Shipments with Claims  
+- 📈 Aggregated Claims by Status  
+- 🔍 Top-Rated Feedback with Sender Info  
+- 🕓 Recent Claims by Shipment  
+
+These queries use **joins, group by, subqueries**, and **aggregate functions** to provide actionable business insights.
 
 #### Files Included
 
