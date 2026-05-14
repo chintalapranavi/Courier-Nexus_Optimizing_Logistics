@@ -1,156 +1,121 @@
-# 📦 Optimizing Logistics through Data – Courier Nexus
+# Courier Nexus — Optimizing Logistics Through Data
 
-A scalable, data-driven logistics management system designed to streamline shipment tracking, claims processing, and customer feedback for courier services. This project replaces inefficient spreadsheet workflows with a robust relational database and interactive web-based analytics, supporting key decisions across operations and customer service.
-
----
-
-## 🚀 Project Overview
-
-As logistics operations scale, managing shipment data with spreadsheets becomes inefficient and error-prone. Our project, *Courier Nexus*, addresses these issues by building a structured, scalable database using PostgreSQL and pgAdmin, enhanced by Python-based ETL pipelines and a Streamlit web interface for real-time querying and reporting.
+A scalable relational database and analytics system built to manage shipment tracking, claims processing, and operational reporting for courier operations. The project demonstrates end-to-end data engineering: schema design, ETL pipeline development, SQL-based analysis, and interactive dashboard delivery — skills directly applicable to large-scale investigative and public-sector data work.
 
 ---
 
-## 🛠️ Tech Stack & Tools
+## Project Summary
 
-- **Languages**: Python, SQL  
-- **Database**: PostgreSQL, pgAdmin  
-- **Web Interface**: Streamlit  
-- **Data Generation**: Faker (Python)  
-- **Containerization**: Docker  
-- **Version Control**: Git, GitHub  
-- **Data Engineering Concepts**: ETL, Indexing, Relational Modeling, Chase Test  
-- **Data Analysis**: SQL (joins, group by, subqueries, aggregates)  
+As logistics operations scale, spreadsheet-based workflows become error-prone and impossible to audit. This project replaces those workflows with a structured PostgreSQL database, a Python-based ETL pipeline, and a Streamlit web interface for real-time querying and reporting. The result is a reproducible, queryable system capable of supporting operational decisions across shipment tracking, claims resolution, and customer feedback analysis.
+
+**Role:** Database architect, SQL query developer, and ETL pipeline engineer (team of 2)
+**Scale:** 15,000+ synthetic records across 10+ relational entities
+**Timeline:** September – October 2024
 
 ---
 
-## 💡 Key Features
+## Skills Demonstrated
 
-- 📦 **Relational Schema Design**: Modeled 10+ entities including Shipments, Packages, Senders, Feedback, and Claims.
-- ⚙️ **Data Generation**: Created 15,000+ synthetic records using Python and Faker.
-- 🧠 **BCNF Compliance**: Applied decomposition, functional dependency analysis, and the Chase Test.
-- 📊 **Optimized Query Performance**: Reduced query time from seconds to milliseconds using indexing and query refactoring.
-- 🧾 **Real-Time Data Reporting**: Built Streamlit dashboards for user-friendly insights into shipment and claim statuses.
-- 🔐 **Data Quality & Security**: Used indexing, integrity constraints, and normalization to improve accuracy and performance.
-
----
-
-## 🧱 Database Schema
-
-The schema includes key entities like:
-
-- **Shipments** – Tracks status, methods, and relationships to packages, senders, and receivers.  
-- **Claims** – Stores claim dates, resolution status, and associated amounts.  
-- **Customer Feedback** – Captures ratings and comments for each shipment.  
-- **Delivery Attempts & Locations** – Logs delivery tries and geolocation data.  
-- **Packages, Senders, Receivers** – Core shipment-related data.
-
-
-## 🧪 Sample Queries
-
-- 🗃️ Count of Shipments by Status  
-- 📦 Shipments with Claims  
-- 📈 Aggregated Claims by Status  
-- 🔍 Top-Rated Feedback with Sender Info  
-- 🕓 Recent Claims by Shipment  
-
-These queries use **joins, group by, subqueries**, and **aggregate functions** to provide actionable business insights.
-
-#### Files Included
-
-1. **create.sql**: Defines the schema for the database, creating tables with necessary primary and foreign key constraints.
-2. index.sql: Implements indexing on key attributes to optimize query performance and accelerate data retrieval.
-3. **data_generator.ipynb**: Python notebook used to generate synthetic data and populate the database. This replaces the need for `.csv` or `.dat` files and a separate `load.sql` file.
-4. **app.py**: Streamlit application script that provides a web-based interface for querying and visualizing data from the database.
-5. **Milestone_2.pdf**: A detailed project report describing the problem statement, target users, database schema, and the normalization process.
+| Area | Details |
+|---|---|
+| **SQL** | Schema design, advanced queries (JOINs, subqueries, GROUP BY, aggregates, window functions), indexing |
+| **Database design** | BCNF normalization, functional dependency analysis, Chase Test, integrity constraints |
+| **ETL** | Python-based data generation, transformation, and loading via Faker and psycopg2 |
+| **Query optimization** | Indexing on high-frequency query columns — reduced query time from seconds to milliseconds |
+| **Data quality** | Constraint enforcement, deduplication, outlier handling, referential integrity |
+| **Visualization** | Streamlit dashboard for non-technical stakeholders; real-time filtering and reporting |
 
 ---
 
-#### Steps to Set Up the Database and Application
+## Repository Structure
 
-1. **Schema Creation**:
-   - Use `create.sql` to set up the database schema. The script creates tables and establishes relationships with appropriate constraints.
-
-2. **Indexing**:
-   -Execute index.sql to create indexes on frequently queried columns for faster data retrieval.
-
-2. **Data Generation and Loading**:
-   - Open and run the `data_generator.ipynb` script in a Jupyter Notebook environment. It:
-     - Connects to the database.
-     - Creates the schema (if not already created).
-     - Generates synthetic data and inserts it into the database tables.
-
-3. **Streamlit Web Application**:
-   - Install Streamlit if not already installed:  
-     ```bash
-     pip install streamlit
-     ```
-   - Run the application with the following command:
-     ```bash
-     streamlit run app.py
-     ```
-   - This launches a web interface where you can:
-     - View data visualizations.
-     - Execute pre-defined queries.
-     - Explore and interact with database records through an intuitive UI.
-
-4. **Querying**:
-   - Use SQL queries for custom analysis and reporting, as demonstrated in the milestone report.
+| File | Description |
+|---|---|
+| `create.sql` | Full schema definition — tables, primary keys, foreign keys, constraints |
+| `index.sql` | Indexing strategy for query optimization on shipment and claims tables |
+| `shipment_analysis.sql` | Analytical queries: shipment counts by status, claims aggregation, top-rated feedback, recent claims by shipment |
+| `data_generator.ipynb` | Python ETL pipeline — generates and loads 15,000+ synthetic records into PostgreSQL |
+| `app.py` | Streamlit dashboard — interactive querying, data visualization, and record exploration |
+| `requirements.txt` | Python dependencies |
 
 ---
 
-#### Data Source
+## Database Schema
 
-- Synthetic data is generated using Python's `Faker` library.
-- The script creates realistic logistics data for various entities like packages, shipments, senders, and receivers.
+Ten entities modeled with full relational integrity:
 
----
+- **Shipments** — status, method, sender/receiver relationships, delivery timeline
+- **Packages** — dimensions, weight, descriptions
+- **Claims** — dates, resolution status, associated amounts
+- **CustomerFeedback** — ratings and comments per shipment
+- **DeliveryAttempts / DeliveryLocations** — delivery log with geolocation timestamps
+- **Senders / Receivers** — core party data with contact information
 
-#### Features of the Streamlit App
-
-- **Dashboard**: Displays key metrics and visual summaries of the logistics data.
-- **Query Execution**: Execute common queries, like tracking shipments, viewing claims, or analyzing customer feedback.
-- **Interactive Reports**: View detailed records with filtering and sorting capabilities.
-- **Data Exploration**: Drill down into specific tables for deeper insights into the data.
-
----
-
-#### Table Overview
-
-| Table                | Description                                                    |
-|----------------------|----------------------------------------------------------------|
-| `Shipments`          | Tracks shipment details including sender, receiver, and status.|
-| `Packages`           | Stores package dimensions and descriptions.                   |
-| `Senders`            | Information about package senders.                            |
-| `Receivers`          | Information about package receivers.                          |
-| `Claims`             | Details about claims related to shipments.                    |
-| `CustomerFeedback`   | Stores customer feedback and ratings.                         |
-| `DeliveryAttempts`   | Logs multiple attempts to deliver a shipment.                 |
-| `DeliveryLocations`  | Records locations and timestamps for deliveries.              |
+All tables satisfy **Boyce-Codd Normal Form (BCNF)** — decomposition verified via functional dependency analysis and the Chase Test.
 
 ---
 
-#### Directory Structure
+## Analytical Queries (`shipment_analysis.sql`)
 
-```
-Project/
-├── create.sql
-├── index.sql
-├── data_generator.ipynb
-├── app.py
-├── Milestone_2.pdf
-└── README.txt
-└── requirements.txt
+Queries are written for reproducibility and stakeholder communication:
+
+- **Shipment counts by status** — operational volume overview
+- **Shipments with open claims** — exception identification via JOIN across Shipments and Claims
+- **Claims aggregated by resolution status** — trend analysis using GROUP BY and aggregate functions
+- **Top-rated feedback with sender information** — multi-table JOIN with filtering
+- **Recent claims by shipment** — temporal query using ORDER BY and subquery filtering
+
+Each query is annotated with the business question it answers and the methodology used.
+
+---
+
+## ETL Pipeline (`data_generator.ipynb`)
+
+The pipeline follows a standard extract-transform-load pattern:
+
+1. **Extract** — parameter configuration and schema validation
+2. **Transform** — Faker-based synthetic record generation, referential integrity enforcement, outlier removal
+3. **Load** — psycopg2 batch insertion into PostgreSQL with error handling and rollback logic
+
+The pipeline is idempotent — re-running it produces consistent results without duplicate records.
+
+---
+
+## Query Optimization
+
+Indexing strategy documented in `index.sql`:
+
+- Indexes on `shipment_id`, `claim_status`, `delivery_date`, and `sender_id`
+- Before indexing: full table scans on 15,000+ rows
+- After indexing: query execution time reduced from seconds to milliseconds
+- Validated using PostgreSQL `EXPLAIN ANALYZE`
+
+---
+
+## Setup
+
+```bash
+# 1. Create schema
+psql -U postgres -d your_db -f create.sql
+
+# 2. Apply indexes
+psql -U postgres -d your_db -f index.sql
+
+# 3. Generate and load data
+jupyter notebook data_generator.ipynb
+
+# 4. Run analytical queries
+psql -U postgres -d your_db -f shipment_analysis.sql
+
+# 5. Launch dashboard
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
 ---
 
-#### Notes
+## Author
 
-- The index.sql file creates indexes for optimizing key queries, especially on shipment tracking and claims processing.
-- The Python script eliminates the need for separate `.csv` or `.dat` files and a `load.sql` file, as data generation and loading are integrated into one process.
-- Streamlit provides a user-friendly interface for non-technical users to interact with the database and visualize insights.
-- The project complies with BCNF normalization to ensure data integrity and eliminate redundancy.
-- Indexing was implemented on key attributes to optimize query performance.
-- For large datasets, consider configuring the database server for better performance (e.g., memory allocation, indexing).
-
-Enjoy visualizing and managing our logistics database with Streamlit!
+**Pranavi Chintala**
+M.S. Data Science, University at Buffalo
+[linkedin.com/in/pranavi-chintala18](https://linkedin.com/in/pranavi-chintala18)
